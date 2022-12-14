@@ -12,8 +12,9 @@ hajimemasite
 - j under
 - k up
 
- insert× esc
- insert  i
+ insert× esc  
+ insert  i  
+ 
 
 
 
