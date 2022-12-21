@@ -1,0 +1,43 @@
+//reproduction//
+
+package watch;
+
+import java.io.*;
+import java.util.*;
+import java.awt.event.*;
+import java.text.SimpleDateFormat;
+import javax.swing.Timer;
+
+public class stopwatch extends javax.swingJFrame{
+    int i=0,j=0,k=0,dt=0,hr=0,min=0,sd=0,ms=0,cnt=0;
+
+        private Timer timer,t2;
+       public stopwatch(){
+        initComponents();
+       }
+       String s="",a="";
+
+       private void initComponents(){
+
+        jPanel1 = new javax.swing.JPanel();
+        startpause = new javax.swing.JToggleButton();
+        lap = new javax.swing.JScrollpane();
+        jScrollPane1 =new java.swing.JScrollPane();
+        ta = new javax.swing.JTextArea();
+        hours = new javax.swing.JLabel();
+        mins = new javax.swing.JLabel();
+        sec = new javax.swing.JLabel();
+        msec = new javax.swing.JLabel();
+        date = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        save = new javax.swing.JMenuItem();
+        jMenu2 = new java.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+
+        
+
+
+
+       }
+}
