@@ -1,0 +1,92 @@
+//reproduction and Continutation from last time//
+package watch;
+
+import java.io.*;
+import java.util.*;
+import java.awt.event.*;
+import java.text.SimpleDateFormat;
+import javax.swing.Timer;
+
+public class stopwatch extends javax.swingJFrame{
+    int i=0,j=0,k=0,dt=0,hr=0,min=0,sd=0,ms=0,cnt=0;
+
+        private Timer timer,t2;
+       public stopwatch(){
+        initComponents();
+       }
+       String s="",a="";
+
+       private void initComponents(){
+
+        jPanel1 = new javax.swing.JPanel();
+        startpause = new javax.swing.JToggleButton();
+        lap = new javax.swing.JScrollpane();
+        jScrollPane1 =new java.swing.JScrollPane();
+        ta = new javax.swing.JTextArea();
+        hours = new javax.swing.JLabel();
+        mins = new javax.swing.JLabel();
+        sec = new javax.swing.JLabel();
+        msec = new javax.swing.JLabel();
+        date = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        save = new javax.swing.JMenuItem();
+        jMenu2 = new java.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+
+        
+        setDefaultCloseOperation(javax.swing.WindouwConstants.EXIT_ONCKOSE);
+        setTitle("BINARY WAEEIOES Stopwatch");
+        setBckground(new java.awt.Color(0,0,0,));
+        addWindouwListener(new java.awt.event.WindowAdapter(){
+            ppublic void windouwOpened(java.awt.event.WindouwEvent evt){
+                forWindouwOpened(evt);
+            }
+        });
+
+        startpause.setFont(new java.awt.Font("Rockwell",0.18));
+        startpause.setForeground(new java.awt.Color(0,204,0));
+        startpause.setText("Start");
+        startpause.addActionListener(new java.awt.event.ActionListener(){
+            public void actionPerformed(java.awt.event.ActionEvent evt){
+                startpauseActionPerformed(evt);
+            }
+        });
+
+        lap.setFont(new java.awt.Font("Rockwell",0,18));
+        lap.addActionListener(new java.awt.event.ActionListener(){
+            public void actionPerformed(java.awt.event.ActionEvent evt){
+            startpauseActionPerformed(evt);
+
+            }
+        });
+
+        ta.setEditable(false);
+        ta.setcolumns(20);
+        ta.setRows(5);
+        jScrollpane1.setViewportView(ta);
+
+        javax.seing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPane1Layout);   //90line//
+        jPanel1layout.setHorizontalGroup(
+       
+        jPanel1Layout.createParalleGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1,
+        javax.swing.GroupLayout.DEFAULT_SIZE,520,Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(jScrollPane1,
+        javax.swing.GroupLayout.PREFERRED_SIZE,206,
+        javax.swing.GroupLayout.PREFERRED_SIZE)
+
+                        
+                        ))
+        )
+
+
+
+       }
+}
