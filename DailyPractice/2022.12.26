@@ -1,0 +1,205 @@
+//reproduction and Continutation from last time//
+package watch;
+
+import java.io.*;
+import java.util.*;
+import java.awt.event.*;
+import java.text.SimpleDateFormat;
+import javax.swing.Timer;
+
+public class stopwatch extends javax.swingJFrame{
+    int i=0,j=0,k=0,dt=0,hr=0,min=0,sd=0,ms=0,cnt=0;
+
+        private Timer timer,t2;
+       public stopwatch(){
+        initComponents();
+       }
+       String s="",a="";
+
+       private void initComponents(){
+
+        jPanel1 = new javax.swing.JPanel();
+        startpause = new javax.swing.JToggleButton();
+        lap = new javax.swing.JScrollpane();
+        jScrollPane1 =new java.swing.JScrollPane();
+        ta = new javax.swing.JTextArea();
+        hours = new javax.swing.JLabel();
+        mins = new javax.swing.JLabel();
+        sec = new javax.swing.JLabel();
+        msec = new javax.swing.JLabel();
+        date = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        save = new javax.swing.JMenuItem();
+        jMenu2 = new java.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+
+        
+        setDefaultCloseOperation(javax.swing.WindouwConstants.EXIT_ONCKOSE);
+        setTitle("BINARY WAEEIOES Stopwatch");
+        setBckground(new java.awt.Color(0,0,0,));
+        addWindouwListener(new java.awt.event.WindowAdapter(){
+            ppublic void windouwOpened(java.awt.event.WindouwEvent evt){
+                forWindouwOpened(evt);
+            }
+        });
+
+        startpause.setFont(new java.awt.Font("Rockwell",0.18));
+        startpause.setForeground(new java.awt.Color(0,204,0));
+        startpause.setText("Start");
+        startpause.addActionListener(new java.awt.event.ActionListener(){
+            public void actionPerformed(java.awt.event.ActionEvent evt){
+                startpauseActionPerformed(evt);
+            }
+        });
+
+        lap.setFont(new java.awt.Font("Rockwell",0,18));
+        lap.addActionListener(new java.awt.event.ActionListener(){
+            public void actionPerformed(java.awt.event.ActionEvent evt){
+            startpauseActionPerformed(evt);
+
+            }
+        });
+
+        ta.setEditable(false);
+        ta.setcolumns(20);
+        ta.setRows(5);
+        jScrollpane1.setViewportView(ta);
+
+        javax.seing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPane1Layout);   //90line//
+        jPanel1layout.setHorizontalGroup(
+       
+        jPanel1Layout.createParalleGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1,
+        javax.swing.GroupLayout.DEFAULT_SIZE,520,Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(33,33,33)
+                        .addComponent(startpause,
+        javax.swing.GroupLayout.PREFERRED_SIZE,206,
+        javax.swing.GroupLayout.PREFERRED_SIZE)
+
+        .addPreferreGap(javax.swing.LayoutStyke.ComponentPlacement.RELATED,93,Short.MAX_VALUE)
+                        .addComponent(lap,
+javax.swing.GroupLayout.PREFERRED_SIZE,198,
+javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addCOntainerGap())
+        ); //103line//
+        jPanel1Layout.setVerticalGroup(
+
+jPanel1Layout.createParalleGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE,
+Short,MAX_VALUE)
+.addGroup(jPanel1Layout.createparallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addCOmponent(startpause,
+javax.swing.GroupLayout.PREFERRED_SIZE,57,
+javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addCOmpomonent(lap,javax.swing.GroupLayout.PREFERRED_SIZE,
+57,javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18,18,18)
+                        .addComponent(jScrollpane1,
+javax.swing.GroupLayout.PREFERRED_SIZE,javax.swing.GroupLayout.DEFAULT_SIZE,
+javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+
+        );
+
+        hours.setFont(new java.awt.Font("Tahoma",0,80));
+        hours.setForeground(new java.awt.Color(0.0.204));
+        hoours.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        hours.setText("00");
+        hours.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Hours", javax.swing.border.TitleBorder.RIGHT,
+,bjavax.swing.border.TitleBorder.DEFAULT_POSITION,new java.awt.Font("Comic SanaMS",0,11), new java.awt.Color(153,153,255)));
+
+        mins.setFont(new java.awt.Font("Tahoma",0,80));
+        mins.setForeground(new java.awt.Color(0.0.204));
+        mins.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        mins.setText("00");
+        mins.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Minutes", javax.swing.border.TitleBorder.RIGHT,
+,bjavax.swing.border.TitleBorder.DEFAULT_POSITION,new java.awt.Font("Comic SanaMS",0,11), new java.awt.Color(153,153,255)));
+
+        sec.setFont(new java.awt.Font("Tahoma",0,80));
+        sec.setForeground(new java.awt.Color(0.0.204));
+        sec.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        sec.setText("00");
+        set.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Seconds", javax.swing.border.TitleBorder.RIGHT,
+,bjavax.swing.border.TitleBorder.DEFAULT_POSITION,new java.awt.Font("Comic SanaMS",0,11), new java.awt.Color(153,153,255)));
+
+        msec.setFont(new java.awt.Font("Tahoma",1,18));
+        msec.setForeground(new java.awt.Color(0.0.204));
+        msec.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        msec.setText("00");
+        msec.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Milliseconds", javax.swing.border.TitleBorder.RIGHT,
+,bjavax.swing.border.TitleBorder.DEFAULT_POSITION,new java.awt.Font("Comic SanaMS",0,11), new java.awt.Color(153,204,255)));
+
+        date.setFont(new java.awt.Font("Tahoma",1,18));
+        date.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        date.setText("Date");
+        date.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0,0,0)1,true));
+        
+        jMenu1.setText("File");  //145line
+
+
+save.setAccelerationPriority(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S,java.awt.event.InputEvent.CTRL_MASK));
+        save.setText("save");
+        save.addActionListener(neew java.awt.event.ActionListener(){
+            public void actionPerformed(java.awt..event.ActionEvent){
+                saveActionPerformed(evt);
+            }
+        });
+        jMenu1.add(save);
+
+        jMenubar1.add(jMenu1);
+
+        jMenu2.setText("Help");
+
+jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H,java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem1.setText("Help");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener(){
+            public void actionPerformed(java.awt.event.ActionEvent evt){
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem1);
+
+        jMenuBar1.add(jMenu2);
+
+        setJmenuBar(jMenubBar1);
+
+        javax.Swing.GroupLayout layout = new javax.swing.GroupLayout(getCountePane());
+        getContentOane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createPralleGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.cretareSequentialGroup()
+                    .addContainerGap()
+
+            .addGroup(layout.createParalleGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addconComponent(jPanel1,javax.swing.GroupLayout.DEFAULT_SIZE,javax.swing.GroupLayout.DEFAULT_SIZE,Short.MAX_VALUE)
+                        .addGroup(layout.createSequentialGroup()
+                        .addComponent(hours, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        
+                .addComponent(mins, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(sec, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        
+                .addComponent(msec, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                            .addContainerGap())
+                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+
+                        )
+        )
+
+
+       }
+}
